@@ -1,1 +1,0 @@
-#DNA.java but in python
