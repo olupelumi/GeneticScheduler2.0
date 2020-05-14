@@ -91,3 +91,16 @@ shift_list = [
 idx_to_shift_map = {idx:shift for idx, shift in enumerate(shift_list)}
 shift_to_idx_map = {shift:idx for idx, shift in enumerate(shift_list)}
 
+names = ["Elizabeth Hergert,
+"Alyson",
+"Adriana Amaris",
+"sarah gao",
+"marlena fleck",
+"Gabby",
+"nina",
+"Andrea Doan",
+"Miguel",
+"Laura Jabr",
+"Alex",
+"Morgan Seay",
+"Leo"]
