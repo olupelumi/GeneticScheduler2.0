@@ -3,7 +3,7 @@
 import json
 import random
 class Schedule:
-    def __init__(self, json_info = None, numShifts):
+    def __init__(self, numShifts):
         self.fitness = None
         #The actual schedule information
         self.numShifts = numShifts
@@ -17,8 +17,10 @@ class Schedule:
         Effect:
         generates a random schedule based on the names
         """
-        pass
         #need to make a random schedule to place in content
+        for shift_num in self.numShifts:
+            self.content.extend(random.choices(nameList, k = 4))
+
 
     def __str__(self):
         pass
