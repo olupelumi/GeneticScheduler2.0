@@ -18,12 +18,12 @@ class Schedule:
         generates a random schedule based on the names
         """
         #need to make a random schedule to place in content
-        for shift_num in self.numShifts:
-            self.content.extend(random.choices(nameList, k = 4))
+        for shift_num in range(self.numShifts):
+            self.content.append(set(random.choices(nameList, k = 2)))
 
 
     def __str__(self):
-        pass
+        return ("numshifts: " + str(self.numShifts) + " content: " + str(self.content))
 
     def to_json(self):
         pass
