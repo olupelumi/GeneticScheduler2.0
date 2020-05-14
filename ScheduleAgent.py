@@ -19,7 +19,7 @@ class Schedule:
         """
         #need to make a random schedule to place in content
         for shift_num in range(self.numShifts):
-            self.content.append(set(random.choices(nameList, k = 2)))
+            self.content.append(set(random.sample(nameList, k = 2)))
 
 
     def __str__(self):
