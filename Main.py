@@ -2,7 +2,7 @@
 import ScheduleAgent
 import Population
 
-mockSched = ScheduleAgent.Schedule(10)
+
 names = ["Elizabeth Hergert",
 "Alyson",
 "Adriana Amaris",
@@ -17,8 +17,9 @@ names = ["Elizabeth Hergert",
 "Morgan Seay",
 "Leo"]
 
+mockSched = ScheduleAgent.Schedule(10,names)
 print(mockSched)
 
-mockSched.from_json(names)
-print(mockSched)
+# mockSched.from_json(names)
+# print(mockSched)
 

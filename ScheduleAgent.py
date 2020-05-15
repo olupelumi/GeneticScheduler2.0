@@ -3,27 +3,33 @@
 import json
 import random
 class Schedule:
-    def __init__(self, numShifts):
-        self.fitness = None
+    def __init__(self, numShifts, nameList):
+        self.fitness = -1 #value before 
+        self.nameList = nameList;
         #The actual schedule information
         self.numShifts = numShifts
-        self.content = [] #WIll be an array of sets
-        
-    def from_json(self, nameList):
-        """
-        Requires:
-        nameList is a list of names as strings
-
-        Effect:
-        generates a random schedule based on the names
-        """
-        #need to make a random schedule to place in content
-        for shift_num in range(self.numShifts):
-            self.content.append(set(random.sample(nameList, k = 2)))
-
+        self.content = [set(random.sample(self.nameList, k = 2)) for _ in range(self.numShifts)] #WIll be an array of sets
 
     def __str__(self):
         return ("numshifts: " + str(self.numShifts) + " content: " + str(self.content))
+    
+    def compute_fitness(self):
+        """
+        Requires:
+        Nothing
+
+        Effects:
+        Calculates the fitness of the current schedule. 
+        """
+        #This is gonna be where the bulk of my thinking is
+        pass
 
     def to_json(self):
+        #may be used later. Not sure yet.
         pass
+
+    def get_content(self):
+        return self.content
+    
+    def get_fitness(self):
+        return self.fitness
