@@ -13,7 +13,9 @@ Below I have my log and how I decided to design everything and why
 
 ### Preprocessing:
 
-to be done later
+**Creating a score Matrix:**
+
+Need a scoring matrix where the rows are the names, the columns are each shift and at each entry is the preference score that the person gave for that shift.
 
 ### Schedule Agent Class:
 
@@ -23,11 +25,19 @@ Each schedule created will be represented as so:
 
 where the index of the array represents the shift and each set represents the people in each shift.
 
-Making a random schedule:
+**Making a random schedule:**
 
 I need to create a random schedule in the aforementioned format using some json data.
 
-I have a list of names so I can just place three people in each shift with equal probability. 
+I have a list of names so I can just place three people in each shift with equal probability. And I do it immediately. 
+
+**Calculating Fitness:**
+
+Taking a relatively simple approach to calculating fitness. I'm going to look at the person at a certain shift and see what their preference score for that shift is ( 1-4) and then sum up all the preference scores at each shift. 
+
+The more 4s and 3s I get, the higher the score will be. 
+
+Will use the scoring matrix to get the preference scores.
 
 ## Possible Improvements:
 
