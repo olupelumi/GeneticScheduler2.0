@@ -19,20 +19,6 @@ import json
  * preferences and such of the employee.
  '''
 
-def process_survey(jdata):
-    pass
-
-def get_names(jdata):
-    """
-    will be a set of names probably. We'll see what I need
-    """
-    pass
-
-with open("survey_data.txt") as jsonfile:
-    #json_data information
-    json_data = json.load(jsonfile)
-#print(json_data)
-
 #shifts in a sorted manner
 shift_list = [
 'Monday (6/24) [7:30am-8:55am]',
@@ -104,3 +90,24 @@ names = ["Elizabeth Hergert",
 "Alex",
 "Morgan Seay",
 "Leo"]
+score_matx = {}
+
+def compute_score_matx(jdata):
+    survey_lst = jdata["survey data"]
+    #iterating over each preference information
+    for name_pref_dict in survey_lst:
+        name_val = name_pref_dict["Name"]
+        score_matx[name_val] = {}
+        for shift in name_pref_dict.keys():
+            #here I need to get the index of the shift
+            #Need to error check now
+            score_matx[name_val][shift] = shift_to_idx_map[shift]
+        
+
+
+
+with open("survey_data.txt") as jsonfile:
+    #json_data information
+    json_data = json.load(jsonfile)
+#print(json_data)
+
