@@ -90,23 +90,22 @@ names = ["Elizabeth Hergert",
 "Alex",
 "Morgan Seay",
 "Leo"]
-score_matx = {}
 cnt = 0
-def compute_score_matx(jdata, input_cnt):
-    
+def compute_score_matx(jdata):
+    score_mat = {}
     survey_lst = jdata["survey data"]
     #iterating over each preference information
     for name_pref_dict in survey_lst:
         name_val = name_pref_dict["Name"]
-        score_matx[name_val] = {}
+        score_mat[name_val] = {}
         for shift in name_pref_dict.keys():
             #here I need to get the index of the shift
             #Need to error check now
             #Thinking I could use regular expressions since the strings representing the shifts are of the same pattern. 
             if re.match(r"[a-zA-Z]+\s\(\d[\d]?/\d[\d]?\)\s\[\d[\d]?:\d[\d]?[\s]?[ap]m[\s]?-[\s]?(\d[\d]?:\d[\d]?[\s]?[ap]m|close)\]", shift):
-                score_matx[name_val][shift] = shift_to_idx_map[shift]
-                input_cnt += 1
-        return(input_cnt)
+                score_mat[name_val][shift] = shift_to_idx_map[shift]
+    return score_mat
+
 
 #opening and reading the jsonfile
 jsonfile = open("survey_data.json")
@@ -114,7 +113,6 @@ jsonfile = open("survey_data.json")
 json_data = json.load(jsonfile)
 #print(json_data)
 
-print(compute_score_matx(json_data, 0))
+print(compute_score_matx(json_data))
 
 
-print(len(shift_list))
