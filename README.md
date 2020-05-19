@@ -14,8 +14,11 @@ Below I have my log and how I decided to design everything and why
 ### Preprocessing:
 
 **Creating a score Matrix:**
+Created a scoring matrix function to generate a score matrix where the rows are the names, the columns are each shift and at each entry is the preference score that the person gave for that shift.\\ 
 
-Need a scoring matrix where the rows are the names, the columns are each shift and at each entry is the preference score that the person gave for that shift.
+I utilized regular expressions to recognize what information was pointing to me a shift in the inputted json data. I was originally going to try using some type of error handling in the form of a "try" clause but that would have been a bit clunky in my opinion so I'm proud of myself for recognizing that I could use regular expressions instead as it is a bit more elegant.\\
+
+The score matrix will be used later to calculate the fitness of any schedule candidate.
 
 ### Schedule Agent Class:
 
