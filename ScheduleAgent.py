@@ -20,6 +20,15 @@ class Schedule:
     def __str__(self):
         return ("numshifts: " + str(self.numShifts) + " content: " + str(self.content))
     
+    #setters
+    def set_content(self, schedule_content):
+        self.content = schedule_content
+    #getters
+    def get_content(self):
+        return self.content
+
+    def get_fitness(self):
+        return self.fitness
     def compute_fitness(self):
         """
         Requires:
@@ -41,8 +50,3 @@ class Schedule:
         #may be used later. Not sure yet.
         pass
 
-    def get_content(self):
-        return self.content
-    
-    def get_fitness(self):
-        return self.fitness
