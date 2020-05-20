@@ -8,14 +8,14 @@ class Schedule:
     #class variable
     #Give a name and a shift(in that order) and it will tell you the person's preference fpr that shift 
     score_matx = Survey.scoring_matrix
-
     id_to_shift = Survey.idx_to_shift_map
-    def __init__(self, numShifts, nameList):
+    #names of employees
+    nameList = Survey.names
+    def __init__(self, numShifts):
         self.fitness = -1 #value before 
-        self.nameList = nameList;
         #The actual schedule information
         self.numShifts = numShifts
-        self.content = [set(random.sample(self.nameList, k = 2)) for _ in range(self.numShifts)] #WIll be an array of sets
+        self.content = [set(random.sample(Schedule.nameList, k = 2)) for _ in range(self.numShifts)] #WIll be an array of sets
 
     def __str__(self):
         return ("numshifts: " + str(self.numShifts) + " content: " + str(self.content))
