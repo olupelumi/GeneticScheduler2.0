@@ -43,5 +43,7 @@ The more 4s and 3s I get, the higher the score will be.
 Will use the scoring matrix to get the preference scores.
 
 ## Possible Improvements:
+- Add a more robust fitness computing algorithm that evaluates a schedule the same way a manager evaluates whether a schedule is good or not.
+- Think more about the business / problem constraints when crossbreeding or mutating. Like a person probably wouldn't like to work both an opening and a closing shift.
 
 ###Project still in progress
