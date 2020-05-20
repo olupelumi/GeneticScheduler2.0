@@ -12,10 +12,11 @@ class Schedule:
     #names of employees
     nameList = Survey.names
     def __init__(self, numShifts):
-        self.fitness = -1 #value before 
         #The actual schedule information
         self.numShifts = numShifts
         self.content = [set(random.sample(Schedule.nameList, k = 2)) for _ in range(self.numShifts)] #WIll be an array of sets
+        #max fitness is numShifts*2*4
+        self.fitness = self.compute_fitness()
 
     def __str__(self):
         return ("numshifts: " + str(self.numShifts) + " content: " + str(self.content))
@@ -23,12 +24,14 @@ class Schedule:
     #setters
     def set_content(self, schedule_content):
         self.content = schedule_content
+
     #getters
     def get_content(self):
         return self.content
 
     def get_fitness(self):
         return self.fitness
+
     def compute_fitness(self):
         """
         Requires:
@@ -37,7 +40,7 @@ class Schedule:
         Effects:
         Calculates the fitness of the current schedule. 
         """
-        #This is gonna be where the bulk of my thinking is
+
         fitness = 0
         for idx, shift_set in enumerate(self.content):
             for person in shift_set:

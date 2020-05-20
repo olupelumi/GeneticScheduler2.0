@@ -26,8 +26,8 @@ class Population:
         selects a mating pool of agents to use to mutate and crossbreed
         returns an aray of selected agents
         """
-          #Chooses the top two most fit agents
-
+          
+        #Chooses the top two most fit agents
         #sorting agents by their fitness
         sorted_agents = sorted(self.agent_list, key = lambda agent: agent.fitness, reverse = True)
         
