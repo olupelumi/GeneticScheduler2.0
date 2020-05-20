@@ -74,9 +74,14 @@ shift_list = [
 ]
 
 #creating my mapping of shifts
+
+#Maps the an index to a shift
 idx_to_shift_map = {idx:shift for idx, shift in enumerate(shift_list)}
+
+#Maps a shift to an index
 shift_to_idx_map = {shift:idx for idx, shift in enumerate(shift_list)}
 
+#List of Names to be looked at 
 names = ["Elizabeth Hergert",
 "Alyson",
 "Adriana Amaris",
@@ -90,7 +95,7 @@ names = ["Elizabeth Hergert",
 "Alex",
 "Morgan Seay",
 "Leo"]
-cnt = 0
+
 def compute_score_matx(jdata):
     """
     Requires:
@@ -120,6 +125,9 @@ jsonfile = open("survey_data.json")
 json_data = json.load(jsonfile)
 #print(json_data)
 
-print(compute_score_matx(json_data))
+#Creating the scoring matrix to be used
+
+#Give a name and a shift(in that order) and it will tell you the person's preference fpr that shift 
+scoring_matrix = compute_score_matx(json_data)
 
 

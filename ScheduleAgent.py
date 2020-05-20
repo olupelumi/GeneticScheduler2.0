@@ -2,7 +2,14 @@
 #from Survey import names
 import json
 import random
+import Survey
+
 class Schedule:
+    #class variable
+    #Give a name and a shift(in that order) and it will tell you the person's preference fpr that shift 
+    score_matx = Survey.scoring_matrix
+
+    id_to_shift = Survey.idx_to_shift_map
     def __init__(self, numShifts, nameList):
         self.fitness = -1 #value before 
         self.nameList = nameList;
@@ -22,7 +29,13 @@ class Schedule:
         Calculates the fitness of the current schedule. 
         """
         #This is gonna be where the bulk of my thinking is
-        pass
+        fitness = 0
+        for idx, shift_set in enumerate(self.content):
+            for person in shift_set:
+                #for each person, add their preference score for their currently assigned shift in the schedule to the total fitness number
+                shift_name = Schedule.id_to_shift[idx]
+                fitness += Schedule.score_matx[person][shift_name]
+        return fitness
 
     def to_json(self):
         #may be used later. Not sure yet.
