@@ -4,7 +4,6 @@ import json
 import random
 import Survey
 from collections import defaultdict
-import pandas as pd
 import json
 
 class Schedule:
@@ -70,7 +69,8 @@ class Schedule:
             person1_dict[Schedule.id_to_shift[idx]] = list(shift)[0] 
             person2_dict[Schedule.id_to_shift[idx]] = list(shift)[1] 
         
-        not_default_dict =  dict.__repr__(json_dict)
+        not_default_dict =  dict(json_dict)
+        print("type2: {}".format(type(not_default_dict)))
         #writing created json to a json file.
         with open(json_file_nm, 'w') as outfile:
             json.dump(not_default_dict, outfile)

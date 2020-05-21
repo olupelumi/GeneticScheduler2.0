@@ -1,12 +1,18 @@
 #Where I'll be creating a json form survey information using a genetic algorithm
 import ScheduleAgent
 import Population
-
+import pandas as pd
+import json
+import csv
 # mockSched = ScheduleAgent.Schedule(10)
 # #print(mockSched)
 # print(mockSched.fitness)
 # print(mockSched.compute_fitness())
 
+def write_to_csv(json_name, csv_name):
+    df = pd.read_json (json_name)
+    df.to_csv (csv_name, index = True)
+    
 
 #population_num = int(input("How many agents do you want in a population(an even integer)? "))
 population_num = 11
@@ -29,16 +35,17 @@ for gen in range(generation_num):
 
    # I've gotten a schedule that's good enough
     if (best_agent1.fitness >= 65) :
-        print("bestagent1 got a schedule good enough")
-        print(best_agent1)
+        # print("bestagent1 got a schedule good enough")
+        # print(best_agent1)
         print(best_agent1.to_json("schedule.json"))
+        write_to_csv("schedule.json", "sched.csv")
         break
 
     if (best_agent2.fitness >= 65):
-        print("bestagent2 got a schedule good enough")
-        print(best_agent2)
+        # print("bestagent2 got a schedule good enough")
+        # print(best_agent2)
         print(best_agent2.to_json("schedule.json"))
-        
+        write_to_csv("schedule.json", "sched.csv")
         break
 
         

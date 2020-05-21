@@ -20,6 +20,7 @@ parsed_survey_json = json.loads(tempsurvey_json)#parsing the json
 
 #Now I want to write this json to a file.
 survey_json={}
+
 survey_json["survey data"]=parsed_survey_json
 
 #writing the json to a file
