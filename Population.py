@@ -38,7 +38,7 @@ class Population:
         parent1 = sorted_agents[rand1]
         parent2 = sorted_agents[rand2]
 
-        #print("parent 1: {},\n parent 2: {}\n".format(parent1, parent2))
+        print("parent 1: {},\n parent 2: {}\n".format(parent1, parent2))
         return (parent1, parent2)
 
     def crossbreed(self, parent1, parent2):
