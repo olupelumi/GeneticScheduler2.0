@@ -29,11 +29,12 @@ class Population:
           
         #Chooses the top two most fit agents
         #sorting agents by their fitness
+        #print(len(self.agent_list))
         sorted_agents = sorted(self.agent_list, key = lambda agent: agent.fitness, reverse = True)
         
-        rand1 = random.randint(0, 10)
-        rand2 = random.randint(0, 10)
-    
+        rand1 = random.randint(0, len(sorted_agents) - 1)
+        rand2 = random.randint(0, len(sorted_agents) - 1)
+        #print(rand1, rand2)
         parent1 = sorted_agents[rand1]
         parent2 = sorted_agents[rand2]
 
@@ -100,7 +101,7 @@ class Population:
         new_content.extend(old_content[rand_idx + 1:self.numShifts])
 
         #setting the newly mutated string
-        agent.set_string(new_content)
+        agent.set_content(new_content)
         return agent
 
     def make_child_population(self, mutation_rate):
