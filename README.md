@@ -7,6 +7,12 @@ Every week in the summer, the personel mannager at  a local coffeshop has to go 
 
 When first thinking about this problem, I knew that there had to be a way to automate this with technology. I had just learned about genetic algorithms in my Program Design class and I felt that approach would be a great fit for this problem because there is no deterministic right answer(final schedule). All that is needed was something that was good enough. There is also some inherent notion of scoring or fitness in the problem as each person has preferences for shifts and the personel manager tried to find a schedule with as many people as possible getting their preference
 
+### Further Explanation of Genetic Algorithm
+
+For those who don't know, a gentic algorithm is a randomized algorithm that uses ideas from evolutionary biology to come to either an exact solution or an approximate one.
+
+The basic idea is that we start with a population of random candidate solutions(or agents) that have a notion of fitness, or how good of a solution the agent is. Like in evoutionary biology, the most fit live to survive and they breed to make new children(a new population) who have their genetic traits. There is also an element of random mutation that could occur in the offspring to bring novel genetic information to reduce the chances of agents converging to one solution space. The system continues to produce new children with greater and greater improved fitness until a good enough approximate solution is found or the exact solution is found
+
 ### Result:
 
 I went simple and made a schedule for one day but it can be used to make for a whole week as well. 
@@ -89,6 +95,46 @@ I was also considering calculating fitness in the population class where I would
 
 ### Population Class:
 
+This class represents a population of candidate schedules. This class holds all the information to represent a population of schedules such as the number of schedules in the population, the number of shifts in each schedule and the actual list of schedules in the population.
+
+**Select Agents:**
+
+chooses the top two most fit schedule agents in a population
+
+These two schedules will become the "parents" of the next population
+
+**Crossbreed:**
+
+Computes a new population from mixing the two parents
+
+I combine the first portions of the first parent and the end portions of the second parent.
+
+The new schedule's beginning will be the beginning of the first parent and at the end of the schedule will be the end of the second parent and vice versa for the other new schedule. 
+
+I repeat the aforementioned (population number) / 2 times (Integer division) to generate a full new population. This also means that the population number is always even after the first generation.
+
+**Mutate:**
+
+Replace a random shift in a schedule with a randomly generated shift with some mutation rate. 
+
+So if the mutation rate is 0.3, I mutate a schedule 30% of the time.
+
+**Make Child Population:**
+
+Puts together the processes of selecting parents, crossbreeding and mutating to form new population.  
+
+I decided to put the generation of a new population in the population class to avoid Main becoming too cluttered.
+
+### Main:
+
+Runs the evolutionary process. 
+
+Here one has to set the population number, number of generations, mutation rate, and number of shifts in each schedule that one wants.
+
+The evolutionary process ends once we go through all the generations or a schedule reaches the scoring threshold, whichever comes first. The threshold is the fitness in which we deem that a schedule is good enough. The threshold is arbitrary and based on what you want the average score per shift to be before making it a schedule. 
+
+Only a schedule that reaches the threshold will be turned into a csv.
+
 ## Possible Improvements:
 
 - Add a more robust fitness computing algorithm that evaluates a schedule the same way a manager evaluates whether a schedule is good or not.
@@ -98,7 +144,10 @@ I was also considering calculating fitness in the population class where I would
 
 ### How to run the code:
 
-- to be written
+Requirements:
+
+- Python 3.7+ preferably.
+- Pandas
 
 ### I learned or refreshed myself on:
 
@@ -106,4 +155,4 @@ I was also considering calculating fitness in the population class where I would
 - Class Variables
 - Pandas
 
-###Project still in progress
+### Please Feel free to try it out on your own
