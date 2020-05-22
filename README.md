@@ -19,6 +19,8 @@ I went simple and made a schedule for one day but it can be used to make for a w
 
 ![](images/result_schedule.png)
 
+The average score here on a shift is 3.25
+
 Below, I write how I decided to design everything and why.
 
 ## Design:
