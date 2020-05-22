@@ -4,11 +4,8 @@ import Population
 import pandas as pd
 import json
 import csv
-# mockSched = ScheduleAgent.Schedule(10)
-# #print(mockSched)
-# print(mockSched.fitness)
-# print(mockSched.compute_fitness())
 
+#takes in the generated schedule json, converts, and writes it to a csv 
 def write_to_csv(json_name, csv_name):
     df = pd.read_json (json_name)
     df.to_csv (csv_name, index = True)
@@ -22,7 +19,7 @@ generation_num = 100
 
 mutation_rate = 0.4
 
-num_shift = 20
+num_shift = 10
 
 sched_score_threshold = (num_shift * 2 * 4) - 15
 
@@ -36,10 +33,12 @@ for gen in range(generation_num):
 
    # If we've gotten a schedule that's good enough
     if (best_agent1.fitness >= sched_score_threshold) :
+        best_agent1.to_json("schedule.json")
         write_to_csv("schedule.json", "sched.csv")
         break
 
     if (best_agent2.fitness >= sched_score_threshold):
+        best_agent2.to_json("schedule.json")
         write_to_csv("schedule.json", "sched.csv")
         break
 
