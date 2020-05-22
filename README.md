@@ -11,7 +11,7 @@ When first thinking about this problem, I knew that there had to be a way to aut
 
 I went simple and made a schedule for one day but it can be used to make for a whole week as well. 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/607ceb49-141e-4683-941e-1cb4e41a3af8/Untitled.png](https://www.notion.so/pelumi/Personal-Home-e90562f1a9334fbd91c6cc94b185e490#0228e846b31341c9a0aa5481370cf407)
+![](images/result_schedule.png)
 
 Below, I write how I decided to design everything and why.
 
@@ -28,10 +28,11 @@ I then turned the transformed the data into a json.
 **Before:**
 
  
-
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f40f0169-d0a5-4cc8-bf16-36e9991d7cc1/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f40f0169-d0a5-4cc8-bf16-36e9991d7cc1/Untitled.png)
+![](images/survey_csv.png)
 
 **After:**
+
+![](images/survey_json.png)
 
 ### Survey:
 
