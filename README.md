@@ -19,7 +19,9 @@ I went simple and made a schedule for one day but it can be used to make for a w
 
 ![](images/result_schedule.png)
 
-The average score here on a shift is 3.25
+The average score above on a shift is 3.25
+
+The daily schedule is generated in about 4 seconds and a weekly schedule takes about 20 seconds.
 
 Below, I write how I decided to design everything and why.
 
