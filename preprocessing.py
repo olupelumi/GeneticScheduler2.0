@@ -16,7 +16,7 @@ surveydf_changed = surveydf_changed.mask(cond = surveydf_changed == "I WANT to w
 tempsurvey_json = surveydf_changed.to_json(orient='records')
 parsed_survey_json = json.loads(tempsurvey_json)#parsing the json
 
-#print(json.dumps(parsed_survey_json, sort_keys=True, indent=4))
+
 
 #Now I want to write this json to a file.
 survey_json={}
@@ -28,4 +28,3 @@ with open('survey_data.json', 'w') as outfile:
     json.dump(survey_json, outfile)
 
  
-#print('Excel Sheet to JSON:\n', json.dumps(survey_json, sort_keys=True, indent=4))

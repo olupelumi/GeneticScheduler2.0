@@ -25,6 +25,8 @@ mutation_rate = 0.4
 
 num_shift = 10
 
+sched_score_threshold = (num_shift * 2 * 4) - 15
+
 #Initializing the first population of agents
 curr_pop = Population.Population(population_num, num_shift)
 for gen in range(generation_num):
@@ -34,17 +36,11 @@ for gen in range(generation_num):
     best_agent2 = curr_pop.select_agents()[1]
 
    # If we've gotten a schedule that's good enough
-    if (best_agent1.fitness >= 65) :
-        # print("bestagent1 got a schedule good enough")
-        # print(best_agent1)
-        print(best_agent1.to_json("schedule.json"))
+    if (best_agent1.fitness >= sched_score_threshold) :
         write_to_csv("schedule.json", "sched.csv")
         break
 
-    if (best_agent2.fitness >= 65):
-        # print("bestagent2 got a schedule good enough")
-        # print(best_agent2)
-        print(best_agent2.to_json("schedule.json"))
+    if (best_agent2.fitness >= sched_score_threshold):
         write_to_csv("schedule.json", "sched.csv")
         break
 
