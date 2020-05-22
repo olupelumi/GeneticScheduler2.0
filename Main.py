@@ -14,16 +14,15 @@ def write_to_csv(json_name, csv_name):
     df.to_csv (csv_name, index = True)
     
 
-#population_num = int(input("How many agents do you want in a population(an even integer)? "))
+#How many agents do you want in a population
 population_num = 11
 
-#generation_num = int(input("How many generations? "))
+#How many generations
 generation_num = 100
 
-#mutation_rate = float(input("mutation rate(a number between 0 and 1)? "))
 mutation_rate = 0.4
 
-num_shift = 10
+num_shift = 20
 
 sched_score_threshold = (num_shift * 2 * 4) - 15
 

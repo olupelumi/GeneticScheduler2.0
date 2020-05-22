@@ -24,7 +24,7 @@ class Population:
 
         Effect:
         selects a mating pool of agents to use to mutate and crossbreed
-        returns an aray of selected agents
+        returns an top two agents
         """
           
         #Chooses the top two most fit agents
@@ -56,7 +56,7 @@ class Population:
             split_idx = random.randint(0, self.numShifts)
 
             #One way I can crossbreed is to combine the first portions of the first parent and the end portions of the second parent. 
-            #The new schedule beginning will be the beginning of the first parent and add the end of the string will be the end of the second parent and vice versa
+            #The new schedule beginning will be the beginning of the first parent and at the end of the schedule will be the end of the second parent and vice versa
             
             child1_content = parent1.get_content()[:split_idx] + parent2.get_content()[split_idx:self.numShifts]
             child2_content = parent2.get_content()[:split_idx] + parent1.get_content()[split_idx:self.numShifts]
@@ -95,12 +95,12 @@ class Population:
 
         rand_idx = random.randint(0, self.numShifts)
         old_content = agent.get_content()
-        #replacing a random shift in the schedule with a radomly generated string
+        #replacing a random shift in the schedule with a radomly generated schedule
         new_content = list(old_content[:rand_idx])
         new_content.append(set(random.sample(Survey.names, k = 2)))
         new_content.extend(old_content[rand_idx + 1:self.numShifts])
 
-        #setting the newly mutated string
+        #setting the newly mutated schedule
         agent.set_content(new_content)
         return agent
 
