@@ -9,15 +9,33 @@ When first thinking about this problem, I knew that there had to be a way to aut
 
 ### Result:
 
+I went simple and made a schedule for one day but it can be used to make for a whole week as well. 
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2b7b43a8-6eee-4d3d-a9d7-0e64c9558ca1/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2b7b43a8-6eee-4d3d-a9d7-0e64c9558ca1/Untitled.png)
+
 Below, I write how I decided to design everything and why.
 
 ## Design:
 
 ### Preprocessing:
 
+My main mission here was to turn the text responses, indicating preference to numerical data which would be much easier to handle and use for evaluating the fitness of a schedule. 
+
+I made it so "I want this shift" had a score of 4, "I'm neutral about this shift", a score of 3, " I'd prefer not to work this shift" -had a score of 2, "I cannot work this shift" had a score of 1.
+
+I then turned the transformed the data into a json. 
+
+**Before:**
+
+ 
+
+![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f40f0169-d0a5-4cc8-bf16-36e9991d7cc1/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f40f0169-d0a5-4cc8-bf16-36e9991d7cc1/Untitled.png)
+
+**After:**
+
 ### Survey:
 
-File used to extract information from a survey json file.
+Code used to extract information from a survey json file.
 
 **Creating a score Matrix:**
 
@@ -85,5 +103,6 @@ I was also considering calculating fitness in the population class where I would
 
 - Regular Expressions
 - Class Variables
+- Pandas
 
 ###Project still in progress
