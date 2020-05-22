@@ -33,7 +33,7 @@ for gen in range(generation_num):
     best_agent1 = curr_pop.select_agents()[0]
     best_agent2 = curr_pop.select_agents()[1]
 
-   # I've gotten a schedule that's good enough
+   # If we've gotten a schedule that's good enough
     if (best_agent1.fitness >= 65) :
         # print("bestagent1 got a schedule good enough")
         # print(best_agent1)

@@ -71,9 +71,11 @@ class Schedule:
         
         not_default_dict =  dict(json_dict)
         print("type2: {}".format(type(not_default_dict)))
+
         #writing created json to a json file.
         with open(json_file_nm, 'w') as outfile:
             json.dump(not_default_dict, outfile)
+            
         #returns json dict in dictionary form and not default dict form
         return not_default_dict
 

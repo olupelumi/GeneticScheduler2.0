@@ -81,21 +81,6 @@ idx_to_shift_map = {idx:shift for idx, shift in enumerate(shift_list)}
 #Maps a shift to an index
 shift_to_idx_map = {shift:idx for idx, shift in enumerate(shift_list)}
 
-#List of Names to be looked at 
-names = ["Elizabeth Hergert",
-"Alyson",
-"Adriana Amaris",
-"sarah gao",
-"marlena fleck",
-"Gabby",
-"nina",
-"Andrea Doan",
-"Miguel",
-"Laura Jabr",
-"Alex",
-"Morgan Seay",
-"Leo"]
-
 def compute_score_matx(jdata):
     """
     Requires:
@@ -103,12 +88,15 @@ def compute_score_matx(jdata):
 
     Effects:
     Returns a dictionary representing a score matrix, telling me the score at amy name,shift pairing
+    Also returns a list of names. 
     """
+    name_lst = []
     score_mat = {}
     survey_lst = jdata["survey data"]
     #iterating over each preference information
     for name_pref_dict in survey_lst:
         name_val = name_pref_dict["Name"]
+        name_lst.append(name_val)
         score_mat[name_val] = {}
         for shift, pref_score in name_pref_dict.items():
             #here I need to get the index of the shift
@@ -116,7 +104,7 @@ def compute_score_matx(jdata):
             #Thinking I could use regular expressions since the strings representing the shifts are of the same pattern. 
             if re.match(r"[a-zA-Z]+\s\(\d[\d]?/\d[\d]?\)\s\[\d[\d]?:\d[\d]?[\s]?[ap]m[\s]?-[\s]?(\d[\d]?:\d[\d]?[\s]?[ap]m|close)\]", shift):
                 score_mat[name_val][shift] = pref_score
-    return score_mat
+    return (score_mat, name_lst)
 
 
 #opening and reading the jsonfile
@@ -128,6 +116,7 @@ json_data = json.load(jsonfile)
 #Creating the scoring matrix to be used
 
 #Give a name and a shift(in that order) and it will tell you the person's preference fpr that shift 
-scoring_matrix = compute_score_matx(json_data)
+#Also returns a name list
+scoring_matrix, names = compute_score_matx(json_data)
 
 
