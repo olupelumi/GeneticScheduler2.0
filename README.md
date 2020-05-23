@@ -1,4 +1,6 @@
 # GeneticScheduler
+![](images/suzanne-d-williams-VMKBFR6r_jg-unsplash.jpg)
+
 ### Introduction and Problem:
 
 Every week in the summer, the personnel manager at  a local coffeshop has to go through survey information on a spreadsheet where 14 or more people put their preferences (e.g "I want this shift", "I'm neutral about this shift", " I'd prefer not to work this shift", "I cannot work this shift"). She then takes the next two hours to try and come up with a schedule that fulfills as many of people's preferences as possible. Thus, making the schedule becomes a massive time suck for her when she could be using that precious time to take care of other responsibilities. 
