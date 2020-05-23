@@ -1,4 +1,4 @@
-# GeneticScheduler
+# Genetic Scheduler
 ![](images/suzanne-d-williams-VMKBFR6r_jg-unsplash.jpg)
 
 ### Introduction and Problem:
