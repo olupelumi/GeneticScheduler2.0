@@ -3,7 +3,7 @@
 
 ### Introduction and Problem:
 
-Every week in the summer, the personnel manager at  a local coffeshop has to go through survey information on a spreadsheet where 14 or more people put their preferences (e.g "I want this shift", "I'm neutral about this shift", " I'd prefer not to work this shift", "I cannot work this shift"). She then takes the next two hours to try and come up with a schedule that fulfills as many of people's preferences as possible. Thus, making the schedule becomes a massive time suck for her when she could be using that precious time to take care of other responsibilities. 
+Every week in the summer, the personnel manager at  a local coffeshop has to go through survey information on a spreadsheet where 14 or more people put their preferences (e.g "I want this shift", "I'm neutral about this shift", " I'd prefer not to work this shift", "I cannot work this shift"). She then takes the next two hours to try and come up with a schedule that fulfills as many of people's preferences as possible. Thus, making the schedule a massive time suck for her when she could be using that precious time to take care of other responsibilities. 
 
 ### My approach:
 
@@ -31,7 +31,7 @@ Below, I write how I decided to design everything and why.
 
 ### Preprocessing:
 
-My main mission here was to turn the text responses, indicating preference to numerical data which would be much easier to handle and use for evaluating the fitness of a schedule. 
+My main mission here was to turn the text responses, indicating preference, to numerical data which would be much easier to handle and use for evaluating the fitness of a schedule. 
 
 I made it so "I want this shift" had a score of 4, "I'm neutral about this shift", a score of 3, " I'd prefer not to work this shift" -had a score of 2, "I cannot work this shift" had a score of 1.
 
@@ -64,7 +64,7 @@ Created a list of the different employees that are working on a particular day
 
 **Others:**
 
-- Created a shift list of the shifts and put them in chronological order
+- Created a shift list of the shifts and put them in chronological order.
 - Used that shift list to create a mapping from an index to one of the shifts in order to represent each shift by a number.
 
 ### Schedule Agent Class:
@@ -105,9 +105,9 @@ This class represents a population of candidate schedules. This class holds all 
 
 **Select Agents:**
 
-chooses the top two most fit schedule agents in a population
+chooses the top two most fit schedule agents in a population.
 
-These two schedules will become the "parents" of the next population
+These two schedules will become the "parents" of the next population.
 
 **Crossbreed:**
 
